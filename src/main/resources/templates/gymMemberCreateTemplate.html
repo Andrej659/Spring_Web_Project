@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Andrej Markanjević">
+    <title>AMGym</title>
+  <link href="/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <section class="" style="height: 100%">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+              <div class="card" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+
+                  <h1 class="mb-5 text-center">Add a member</h1>
+
+
+                    <form action="#" th:action="@{/gymMembers}" th:object="${gymMember}" method="post">
+                      <div class="form-outline mb-4">
+                        <input type="text" th:field="*{name}" id="memberName" class="form-control" required/>
+                        <label class="form-label" for="memberName">Name</label>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input type="date" th:field="*{gymMemberDateOfBirth}" id="gymMemberDateOfBirth" class="form-control" required />
+                        <label class="form-label" for="gymMemberDateOfBirth">Date of birth</label>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('gymMemberDateOfBirth')}" th:errors="*{gymMemberDateOfBirth}"></div>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input type="date" th:field="*{gymMembershipExpirationDate}" id="gymMembershipExpirationDate" class="form-control" required />
+                        <label class="form-label" for="gymMembershipExpirationDate">Membership expiration date</label>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('gymMembershipExpirationDate')}" th:errors="*{gymMembershipExpirationDate}"></div>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary btn-rounded btn-block">Add</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
